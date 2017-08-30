@@ -581,8 +581,7 @@ public class AddressBook {
 
     private static String executeSortAllPersonsInAddressBook() {
         ArrayList<String[]> toBeSorted = getAllPersonsInAddressBook();
-        toBeSorted.sort((String[] person1, String[] person2)->
-            person1[0].compareTo(person2[0]));
+        toBeSorted.sort(Comparator.comparing((String[] person)->person[0])); //java8 expression
         showToUser(toBeSorted);
         return getMessageForPersonsDisplayedSummary(toBeSorted);
     }
